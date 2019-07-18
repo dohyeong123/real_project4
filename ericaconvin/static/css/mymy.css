@@ -1,0 +1,13 @@
+@font-face { font-family: 'UhBeeSe_hyun'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_five@.2.0/UhBeeSe_hyun.woff') format('woff'); font-weight: normal; font-style: normal; }
+
+@font-face { font-family: 'BMJUA'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/BMJUA.woff') format('woff'); font-weight: normal; font-style: normal; }
+
+header {
+    font-family: 'UhBeeSe_hyun';
+    /*color:#3274b9!important;*/
+}
+
+body {
+    background-color: #3274b9;
+    font-family: 'BMJUA';
+}
