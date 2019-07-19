@@ -1,6 +1,6 @@
 {% load static %}
 <!doctype html>
-<html lang="en">
+<html lang="ko">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -14,62 +14,44 @@
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
-
-    <style>
-      .bd-placeholder-img {
-        font-size: 1.125rem;
-        text-anchor: middle;
-        -webkit-user-select: none;
-        -moz-user-select: none;
-        -ms-user-select: none;
-        user-select: none;
-      }
-
-      @media (min-width: 768px) {
-        .bd-placeholder-img-lg {
-          font-size: 3.5rem;
-        }
-      }
-    </style>
     <!-- Custom styles for this template -->
     <link href="album.css" rel="stylesheet">
-
     <link href="{% static 'css/mymy.css' %}?ver=1" rel="stylesheet">
 
   </head>
   <body>
-    <header>
-  <div class="collapse bg-dark" id="navbarHeader">
-    <div class="container">
-      <div class="row">
-        <div class="col-sm-8 col-md-7 py-4">
-          <h4 class="text-white">하이에리카</h4>
-          <p class="text-muted">하냥이에게 학교와 주변에 대해서만 다 물어봐!</p>
-        </div>
-        <div class="col-sm-4 offset-md-1 py-4">
-          <h4 class="text-white">Contact</h4>
-          <ul class="list-unstyled">
-            <li><a href="#" class="text-white">Follow on Twitter</a></li>
-            <li><a href="#" class="text-white">Like on Facebook</a></li>
-            <li><a href="#" class="text-white">Email me</a></li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="navbar navbar-dark bg-dark shadow-sm">
-    <div class="container d-flex justify-content-between">
-      <a href="#" class="navbar-brand d-flex align-items-center">
-        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" aria-hidden="true" class="mr-2" viewBox="0 0 24 24" focusable="false"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
-        <strong>지도</strong>
-      </a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-    </div>
-  </div>
-
-    </header>
+      <header>
+          <div class="collapse bg-dark" id="navbarHeader">
+            <div class="container">
+              <div class="row">
+                <div class="col-sm-8 col-md-7 py-4">
+                  <h4 class="text-white">하이에리카</h4>
+                  <p class="text-muted">하냥이에게 학교와 주변에 대해서만 다 물어봐!</p>
+                </div>
+                <div class="col-sm-4 offset-md-1 py-4">
+                  <h4 class="text-white">Contents</h4>
+                  <ul class="list-unstyled">
+                    <li><a href="{% url 'map' %}" class="text-white">지도</a></li>
+                    <li><a href="{% url 'hotplace'%}" class="text-white">맛집</a></li>
+                    <li><a href="{% url 'convin' %}" class="text-white">편의시설</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="navbar navbar-dark bg-dark shadow-sm">
+            <div class="container d-flex justify-content-between">
+              <a href="{% url 'index' %}" class="navbar-brand d-flex align-items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" aria-hidden="true" class="mr-2" viewBox="0 0 24 24" focusable="false"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
+                <strong>하이에리카</strong>
+              </a>
+              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+            </div>
+          </div>
+        
+        </header>
 
 <main role="main">  
 
@@ -77,19 +59,18 @@
     <div class="container">
       <h1 class="jumbotron-heading">한양대 에리카 길찾기!</h1>
       <p class="lead text-muted">건물번호 혹은 건물이름을 입력하시면, 위치를 알 수 있습니다!</p>
-      <p>
-        <h5>Catagory</h5>
-        <a href="#" class="btn btn-primary my-2">한식</a>
-        <a href="#" class="btn btn-secondary my-2">not 한식</a>
-      </p>
+      <form class="text-center" action="{% url 'map' %}">
+        <label for="building_number">건물번호</label>
+        <input type="text" name="building_number" id="building_number" />
+        <label for="building_name">건물이름</label>
+        <input type="text" name="building_name" id="building_name" />
+        <button type="submit" class="btn btn-default">도와줘!</button>
+      </form>
     </div>
   </section>
   <div class = "himap"> 
      <img id ="mapimg" src = "{% static 'png\mapppp.jpg'%}">
   </div>
-<div>
-  <p>gigigi</p>
-</div>
 </main>
 
 <footer class="text-muted">

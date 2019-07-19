@@ -22,4 +22,5 @@ urlpatterns = [
     path('', ericaconvin.views.index, name = "index"),
     path('hotplace/', ericaconvin.views.hotplace, name = "hotplace"),
     path('convenient/', ericaconvin.views.convin, name = "convin"),
+    path('map/', ericaconvin.views.map, name = "map"),
 ]

@@ -16,8 +16,30 @@ img {
     width: 100%;
 }
 
-.btn btn-lg btn-secondary{
-    background-color: #004483;
+list-group-item:hover{
+    text-decoration: none;
+    color: lightblue;
+}
+
+#title{
+    color: white;
+}
+
+.list-group{
+    width: 60%; 
+    margin-left: 20%;
+    margin-right: 20%;
+}
+
+.list-group-item{
+    color: white !important;
+    background-color: #3274b9 !important;
+    border: none;   
+}
+
+.badge{
+    color: #3274b9 !important;
+    background-color: white !important;
 }
 
 .bd-placeholder-img {
