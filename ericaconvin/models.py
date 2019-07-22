@@ -10,6 +10,7 @@ class Category(models.Model) :
 
 
 class Restaurant(models.Model) :
+    objects = models.Manager()
     cate = models.ForeignKey(Category, on_delete=models.CASCADE, null=True)
     name = models.CharField(max_length = 20, unique = True)
     num = models.CharField(max_length = 15, default="000-0000-0000")
