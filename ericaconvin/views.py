@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import Restaurant, Category
+from .models import Restaurant, Category, Facilities
 
 # Create your views here.
 
@@ -7,14 +7,27 @@ def index(request) :
     return render(request, 'index.html')
 
 def convin(request) :
-    return render(request, 'convin.html')
+    facilities = Facilities.objects
+    check = '6'  
+    category = '편의점'
+    c_c = request.GET.get('convin_category')
+    if c_c == '편의점':
+        check = 6
+        category = '편의점'
+    elif c_c == 'not편의점' :
+        check = 7
+        category = 'not편의점'
+    convin_filter = Facilities.objects.filter(cate = check)
+
+
+    return render(request, 'convin.html', {'facilities': facilities, 'covenient': convin_filter, 'c_category': category })
 
 def map(request) :
     return render(request, 'map.html')
 
 def hotplace(request) :
     restaurant = Restaurant.objects
-    check = '1'
+    check = '1'  
     category = '한식'
     f_c = request.GET.get('food_category')
     if f_c == 'korean' :
@@ -47,3 +60,5 @@ def hotplace(request) :
     return render(request, 'hotplace.html',
     {'restaurant':restaurant, 'food' : food_filter,'location' : location_filter,
     'f_category': category, 'l_category' : locate})
+
+

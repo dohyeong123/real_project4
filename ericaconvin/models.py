@@ -22,3 +22,21 @@ class Restaurant(models.Model) :
 
     def __str__(self):
         return self.name
+
+
+class Facilities(models.Model) :
+    cate = models.ForeignKey(Category, on_delete=models.CASCADE, null=True)
+    name = models.CharField(max_length = 20, unique = True)
+    num = models.CharField(max_length = 15, default="000-0000-0000")
+    locate = models.CharField(max_length = 10, default="")
+    address = models.TextField(default="")
+    info = models.TextField(default="")
+    
+    #이미지 주소 속성
+    img_address = models.TextField(default="")
+
+
+    def __str__(self):
+        return self.name
+    
+
