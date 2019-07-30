@@ -12,10 +12,10 @@ def convin(request) :
     category = '편의점'
     c_c = request.GET.get('convin_category')
     if c_c == '편의점':
-        check = 13
+        check = 14
         category = '편의점'
     elif c_c == 'not편의점' :
-        check = 14
+        check = 15
         category = 'not편의점'
     convin_filter = Facilities.objects.filter(cate = check)
 
