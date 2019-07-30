@@ -8,14 +8,14 @@ def index(request) :
 
 def convin(request) :
     facilities = Facilities.objects
-    check = '6'  
+    check = '13'  
     category = '편의점'
     c_c = request.GET.get('convin_category')
     if c_c == '편의점':
-        check = 6
+        check = 13
         category = '편의점'
     elif c_c == 'not편의점' :
-        check = 7
+        check = 14
         category = 'not편의점'
     convin_filter = Facilities.objects.filter(cate = check)
 
