@@ -56,3 +56,16 @@ list-group-item:hover{
       font-size: 3.5rem;
     }
   }
+  #footer{
+    text-align: center!important;
+    padding: 15px 0!important;
+    left: 0!important;
+    bottom: 0 !important;
+    width: 100% !important;
+    position: inherit !important;
+  }
+
+  .img-fluid {
+    max-width: 250px!important;
+    height: 100px!important;
+}
